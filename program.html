@@ -1,0 +1,862 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program / Schedule – CARVEFEST 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --dark-brown:    #3a220c;
+      --medium-brown:  #5c3616;
+      --light-brown:   #8b5a2b;
+      --forest-green:  #287a3c;
+      --soft-green:    #e4f3e8;
+      --accent-orange: #e67e22;
+      --white:         #ffffff;
+      --light-gray:    #f8f8f8;
+      --dark-gray:     #333333;
+      --medium-gray:   #777777;
+      --red:           #c8102e;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: var(--dark-gray);
+      background-color: var(--white);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      height: 140px;
+      width: auto;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark-gray);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, nav a.active { color: var(--forest-green); }
+
+    .btn-primary {
+      background: var(--forest-green);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover { background: #1e5c2d; }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 5% 6rem;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      color: var(--dark-brown);
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--medium-gray);
+      font-size: 1.35rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .schedule-container {
+      margin: 0 auto;
+    }
+
+    .day-header {
+      background: var(--forest-green);
+      color: white;
+      padding: 1.4rem 2rem;
+      font-size: 1.8rem;
+      border-radius: 10px 10px 0 0;
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .day-header i {
+      font-size: 1.6rem;
+    }
+
+    .day-content {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .timeline {
+      position: relative;
+      padding: 2.5rem 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 80px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--soft-green);
+    }
+
+    .event {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 110px;
+    }
+
+    .event-time {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 70px;
+      text-align: right;
+      font-weight: 600;
+      color: var(--forest-green);
+      font-size: 1.1rem;
+    }
+
+    .event-content {
+      background: var(--light-gray);
+      padding: 1.4rem 1.8rem;
+      border-radius: 10px;
+      border-left: 5px solid var(--forest-green);
+      transition: all 0.3s;
+    }
+
+    .event-content:hover {
+      transform: translateX(8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .event-title {
+      font-size: 1.35rem;
+      color: var(--dark-brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .event-desc {
+      color: var(--medium-gray);
+    }
+
+    .highlight {
+      color: var(--accent-orange);
+      font-weight: 600;
+    }
+
+     /* Footer */
+    footer {
+      background: var(--dark-brown);
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: var(--accent-orange);
+      margin-bottom: 1.2rem;
+      font-size: 1.35rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: #ddd;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover,
+    .social-icons a:hover {
+      color: var(--accent-orange);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2.5rem;
+      margin-top: 2rem;
+      border-top: 1px solid #555;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.6rem; }
+      .day-header { font-size: 1.6rem; padding: 1.2rem 1.5rem; }
+      .timeline::before { left: 40px; }
+      .event { padding-left: 70px; }
+      .event-time { width: 50px; font-size: 1rem; }
+      nav ul { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      
+       <a href="index.html"><img src="carvefest.jpeg" alt="CARVEFEST 2026"></a>
+    </div>
+    <nav>
+      <ul>
+       
+        <li><a href="about.html">About</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="btn-primary"><a href="vendors.html" style="text-decoration: none; color:white;">Become a Vendor</a></button>
+  </header>
+
+  <main>
+    <h1>Program & Schedule</h1>
+    <p class="subtitle">February 27 – March 1, 2026 | Inside AGROFEST, Bridgetown, Barbados</p>
+
+    <div class="schedule-container">
+
+      <div class="day-header">
+        <i class="fas fa-sun"></i> Friday, February 27, 2026 – Opening Day
+      </div>
+      <div class="day-content">
+        <div class="timeline">
+          <div class="event">
+            <div class="event-time">9:00</div>
+            <div class="event-content">
+              <div class="event-title">Festival Gates Open & Welcome</div>
+              <p class="event-desc">Official opening remarks by A. Ashanti Trotman and special guests from the Ministry of Culture and Creative Industries.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">10:00</div>
+            <div class="event-content">
+              <div class="event-title">Grand Carving Unveiling</div>
+              <p class="event-desc">Live reveal of the 2026 festival theme sculpture created by master carvers over the past months.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">11:00 – 16:00</div>
+            <div class="event-content">
+              <div class="event-title">Live Carving Demonstrations – Stage 1</div>
+              <p class="event-desc">Three master carvers working simultaneously on large-scale mahogany pieces with audience Q&A.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">14:00</div>
+            <div class="event-content">
+              <div class="event-title">Youth Spotlight Showcase</div>
+              <p class="event-desc">Selected young carvers (ages 12–18) present their pre-festival work and receive mentorship feedback.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">18:00</div>
+            <div class="event-content">
+              <div class="event-title">Sunset Carving & Music Night</div>
+              <p class="event-desc">Relaxed carving sessions with live calypso and reggae performances + food & craft stalls open late.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-header">
+        <i class="fas fa-calendar-day"></i> Saturday, February 28, 2026 – Main Festival Day
+      </div>
+      <div class="day-content">
+        <div class="timeline">
+          <div class="event">
+            <div class="event-time">9:00</div>
+            <div class="event-content">
+              <div class="event-title">Gates Re-Open</div>
+              <p class="event-desc">Morning yoga & mindfulness session among the mahogany displays (optional).</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">10:00 – 17:00</div>
+            <div class="event-content">
+              <div class="event-title">Live Carving Competition – Round 1</div>
+              <p class="event-desc">Eight carvers compete in the 4-hour “Spirit of the Land” category. Public voting via QR code begins.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">11:30</div>
+            <div class="event-content">
+              <div class="event-title">Beginner Youth Workshop Block 1</div>
+              <p class="event-desc">Ages 8–12: “First Cuts” – safe introduction to tools and basic shaping (limited spots, pre-registration recommended).</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">13:30</div>
+            <div class="event-content">
+              <div class="event-title">Intermediate Youth Workshop Block 2</div>
+              <p class="event-desc">Ages 13–18: Relief carving techniques on small mahogany panels (pre-registration advised).</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">15:00</div>
+            <div class="event-content">
+              <div class="event-title">Panel Discussion: “The Future of Barbadian Craft”</div>
+              <p class="event-desc">Carvers, educators, tourism officials and youth representatives discuss sustainability and market access.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">19:00</div>
+            <div class="event-content">
+              <div class="event-title">Awards Ceremony & Gala Evening</div>
+              <p class="event-desc">Competition winners announced, live music, carved pieces auction, networking reception.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-header">
+        <i class="fas fa-calendar-check"></i> Sunday, March 1, 2026 – Closing Day
+      </div>
+      <div class="day-content">
+        <div class="timeline">
+          <div class="event">
+            <div class="event-time">9:00</div>
+            <div class="event-content">
+              <div class="event-title">Family Morning</div>
+              <p class="event-desc">Free entry for children under 12 + family-friendly carving demos and mini-workshops.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">10:30 – 14:00</div>
+            <div class="event-content">
+              <div class="event-title">Live Carving Competition – Final Round & Judging</div>
+              <p class="event-desc">Top 4 from Saturday finish their pieces; public vote closes at 13:00; judges deliberate.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">14:30</div>
+            <div class="event-content">
+              <div class="event-title">Grand Finale & Prize Giving</div>
+              <p class="event-desc">Overall winners announced, People’s Choice award, closing remarks, group photo with all participants.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">15:30 – 17:00</div>
+            <div class="event-content">
+              <div class="event-title">Farewell Carving Circle</div>
+              <p class="event-desc">Informal carving jam session, last chance to purchase pieces, photo ops, and goodbyes.</p>
+            </div>
+          </div>
+          <div class="event">
+            <div class="event-time">17:00</div>
+            <div class="event-content">
+              <div class="event-title">Festival Closes</div>
+              <p class="event-desc">Thank you & see you in 2027!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>CARVEFEST 2026</h3>
+        <p>Mahogany Mound Studios in association with Artists Alliance Barbados</p>
+        <p>Inside AGROFEST • February 27 – March 1, 2026</p>
+        <div class="social-icons" style="margin-top:1.2rem;">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="#">About the Event</a></p>
+        <p><a href="#">Program & Schedule</a></p>
+        <p><a href="#">Sponsorship Opportunities</a></p>
+        <p><a href="#">Youth Workshops</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i> info@carvefest.bb</p>
+        <p><i class="fas fa-phone"></i> +1 (246) XXX-XXXX</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 CARVEFEST – Celebrating Barbadian Craft & Creativity</p>
+    </div>
+  </footer>
+
+</body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programme – CARVEFEST 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --dark-brown:    #3a220c;
+      --medium-brown:  #5c3616;
+      --light-brown:   #8b5a2b;
+      --forest-green:  #287a3c;
+      --soft-green:    #e4f3e8;
+      --accent-orange: #e67e22;
+      --white:         #ffffff;
+      --light-gray:    #f8f8f8;
+      --dark-gray:     #333333;
+      --medium-gray:   #777777;
+      --red:           #c8102e;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: var(--dark-gray);
+      background-color: var(--white);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-primary {
+      background-color: var(--forest-green);
+      color: white;
+      border: none;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .btn-primary:hover {
+      background-color: #1e5c2d;
+      transform: scale(1.08);
+    }
+
+    .btn-primary[title]:hover::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .logo img {
+      height: 140px;
+      width: auto;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark-gray);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover, nav a.active { color: var(--forest-green); }
+
+   
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 5% 6rem;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      color: var(--dark-brown);
+      text-align: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--medium-gray);
+      font-size: 1.35rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .overview {
+      font-size: 1.18rem;
+      max-width: 900px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      color: var(--dark-gray);
+    }
+
+    .location-note {
+      background: var(--soft-green);
+      padding: 1.4rem 2rem;
+      border-radius: 10px;
+      margin: 2rem auto;
+      max-width: 900px;
+      font-size: 1.1rem;
+      text-align: center;
+      border-left: 5px solid var(--forest-green);
+    }
+
+    .day-section {
+      margin: 3.5rem 0;
+    }
+
+    .day-title {
+      background: var(--forest-green);
+      color: white;
+      padding: 1.2rem 1.8rem;
+      font-size: 1.7rem;
+      border-radius: 10px 10px 0 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .day-title i {
+      font-size: 1.5rem;
+    }
+
+    .day-content {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      padding: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .day-content ul {
+      list-style: none;
+      font-size: 1.15rem;
+    }
+
+    .day-content li {
+      margin-bottom: 1.1rem;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+
+    .day-content li::before {
+      content: "•";
+      color: var(--accent-orange);
+      position: absolute;
+      left: 0;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .featured {
+      margin-top: 4rem;
+      padding: 2.5rem;
+      background: var(--light-gray);
+      border-radius: 12px;
+    }
+
+    .featured h2 {
+      color: var(--dark-brown);
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .featured ul {
+      list-style: none;
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+    }
+
+    .featured li {
+      margin-bottom: 1.2rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .featured li::before {
+      content: "✓";
+      color: var(--forest-green);
+      position: absolute;
+      left: 0;
+      font-size: 1.4rem;
+    }
+
+    footer {
+      background: var(--dark-brown);
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: var(--accent-orange);
+      margin-bottom: 1.2rem;
+      font-size: 1.35rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: #ddd;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover,
+    .social-icons a:hover {
+      color: var(--accent-orange);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2.5rem;
+      margin-top: 2rem;
+      border-top: 1px solid #555;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.6rem; }
+      .day-title { font-size: 1.5rem; }
+      .day-content { padding: 1.5rem; }
+      nav ul { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+       <div class="logo">
+      <a href="index.html"><img src="carvefest1.jpeg" alt="CARVEFEST 2026"></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+
+<div class="header-buttons">
+      <button class="btn-primary" title="">
+        <a href="shop.html" style="color:white; text-decoration:none;">
+          <i class="fas fa-cart-shopping"></i>
+        </a>
+      </button>
+    </div>
+
+  </header>  </header>
+
+  <main>
+    <h1>CARVEFEST 2026 Programme</h1>
+    <p class="subtitle">February 27 – March 1, 2026 | Inside AGROFEST, Bridgetown, Barbados</p>
+
+    <p class="overview">
+      Three days of live carving demonstrations, learning, exhibition of decorative and utilitarian products, buying, and celebration — all within AGROFEST 2026. CARVEFEST blends spectacle, skill, and commerce into one national experience.
+    </p>
+
+    <div class="location-note">
+      <strong>Location:</strong> Find us in the dedicated CARVEFEST Zone inside AGROFEST. Look for the Exhibition & display tents, artisan marketplace tent and chainsaw/power-tools arena.
+    </div>
+
+    <div class="day-section">
+      <div class="day-title">
+        <i class="fas fa-sun"></i> Day 1 — Opening & Live Demos
+      </div>
+      <div class="day-content">
+        <ul>
+          <li>Welcome Ceremony</li>
+          <li>Live Chainsaw Carving & Power Tools Showcase</li>
+          <li>Artisan Marketplace Opens</li>
+          <li>Exhibition, Interviews & audio/visual presentations</li>
+          <li>Schools’ Students reception</li>
+          <li>Artwork & Tools raffles</li>
+          <li>Buyer Connect & QR Capture Stations</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="day-section">
+      <div class="day-title">
+        <i class="fas fa-calendar-day"></i> Day 2 — Skills & Learning
+      </div>
+      <div class="day-content">
+        <ul>
+          <li>Youth workshops (tool safety, design, carving basics)</li>
+          <li>Hand-tool carving demonstrations</li>
+          <li>Talks on craftsmanship, entrepreneurship, and materials</li>
+          <li>Sponsor engagement zones open to the public</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="day-section">
+      <div class="day-title">
+        <i class="fas fa-calendar-check"></i> Day 3 — Market, Voting & Awards
+      </div>
+      <div class="day-content">
+        <ul>
+          <li>People’s Choice Voting</li>
+          <li>Artisan marketplace at full swing</li>
+          <li>Awards Ceremony & Sponsor Recognition</li>
+          <li>Closing celebration of Barbadian craft</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="featured">
+      <h2>Featured Experiences</h2>
+      <ul>
+        <li>Live Demo Zone: Watch master carvers at work with chisels, grinders, and chainsaws.</li>
+        <li>Youth Skill Zone: Hands-on learning for aspiring artisans.</li>
+        <li>Buy & Connect Hub: Discover unique Caribbean pieces you can buy and take home.</li>
+        <li>Family Zone: Safe, supervised activities where children can explore creativity.</li>
+        <li>Sponsor Showcase: See the latest tools and innovations in action.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>CARVEFEST 2026</h3>
+      <div style=" display: flex; flex-direction:column;">
+        <img src="cedi.jpeg" height="70px" width="150px" alt="CARVEFEST 2026">
+        <img src="cediflow.jpeg" height="50px" width="150px" alt="CARVEFEST 2026">
+      </div>
+        <p>Mahogany Mound Studios in association with Artists Alliance Barbados</p>
+        <p>Inside AGROFEST • February 27 – March 1, 2026</p>
+        <div class="social-icons" style="margin-top:1.2rem;">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="about.html">About the Event</a></p>
+        <p><a href="program.html">Program & Schedule</a></p>
+        <p><a href="sponsors.html">Sponsorship Opportunities</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i> carvefest@carvefest.com</p>
+        <p><i class="fas fa-phone"></i> +1 (246) 230-9091</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 CARVEFEST – Celebrating Barbadian Craft & Creativity</p>
+    </div>
+  </footer>
+
+</body>
+>>>>>>> 721ffb4 (Initial commit)
+</html>

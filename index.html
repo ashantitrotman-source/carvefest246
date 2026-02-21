@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CARVEFEST 2026 – Barbados Wood Carving Festival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --dark-brown:    #3a220c;
+      --medium-brown:  #5c3616;
+      --light-brown:   #8b5a2b;
+      --forest-green:  #287a3c;
+      --soft-green:    #e4f3e8;
+      --accent-orange: #e67e22;
+      --white:         #ffffff;
+      --light-gray:    #f8f8f8;
+      --dark-gray:     #333333;
+      --medium-gray:   #777777;
+      --red:           #c8102e;
+      --red-dark:      #a00824;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: var(--dark-gray);
+      background-color: var(--white);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img {
+      height: 180px;
+      width: 180px;
+      display: block;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 1.8rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark-gray);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--forest-green);
+    }
+
+    .hero {
+      position: relative;
+      height: 75vh;
+      min-height: 500px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-slideshow {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--dark-brown);
+      transition: opacity 1.5s ease-in-out;
+      opacity: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.40);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 900px;
+      padding: 0 20px;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+    }
+
+    .hero h2 { font-size: 3.5rem; margin-bottom: 1.2rem; }
+    .hero p  { font-size: 1.35rem; margin-bottom: 2.2rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+    .countdown-section {
+      background: white;
+      padding: 3rem 1rem;
+      text-align: center;
+      margin: 2rem auto;
+      max-width: 960px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .countdown-section h3 {
+      color: var(--red);
+      font-size: 2.1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem 2.5rem;
+    }
+
+    .countdown span {
+      min-width: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: white;
+      padding: 1.2rem 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(200,16,46,0.18);
+      border: 2px solid var(--red);
+    }
+
+    .countdown .number {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: var(--red);
+      line-height: 1;
+    }
+
+    .countdown .label {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--dark-gray);
+      margin-top: 0.4rem;
+    }
+
+    section { padding: 4rem 5%; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.6rem;
+      color: var(--dark-brown);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-header p {
+      color: var(--medium-gray);
+      font-size: 1.15rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .home-intro {
+      background: linear-gradient(to bottom, var(--soft-green), #ffffff);
+      padding: 5rem 5% 4rem;
+      text-align: center;
+    }
+
+    .home-intro h1 {
+      font-size: 3.2rem;
+      color: var(--dark-brown);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .home-intro .subheadline {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--medium-brown);
+      margin-bottom: 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .home-intro .intro-text {
+      font-size: 1.2rem;
+      max-width: 880px;
+      margin: 0 auto 2.5rem;
+      color: var(--dark-gray);
+    }
+
+    .home-intro ul {
+      list-style: none;
+      max-width: 760px;
+      margin: 0 auto 3rem;
+      text-align: left;
+      font-size: 1.15rem;
+    }
+
+    .home-intro ul li {
+      margin-bottom: 1rem;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+
+    .home-intro ul li::before {
+      content: "•";
+      color: var(--forest-green);
+      position: absolute;
+      left: 0;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto 0 5rem;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid rgba(0,0,0,0.04);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.10);
+    }
+
+    .card-image {
+      height: 520px;
+      overflow: hidden;
+      background: #111;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      transition: transform 0.5s ease;
+      min-width: 100%;
+      min-height: 100%;
+    }
+
+    .card:hover .card-image img { transform: scale(1.1); }
+
+    .card-content { padding: 1.6rem; background: #ffffff; }
+
+    .card-content h3 {
+      color: var(--dark-brown);
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+    }
+
+    .card-content p {
+      color: var(--medium-gray);
+      margin-bottom: 1.2rem;
+    }
+
+    .slider-section {
+      background: var(--white);
+      padding: 5rem 5% 4rem;
+    }
+
+    .slider-section h2 {
+      text-align: center;
+      color: var(--dark-brown);
+      margin-bottom: 2rem;
+      font-size: 2.4rem;
+    }
+
+    .slider-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1rem;
+      scroll-snap-align: start;
+    }
+
+    .artwork-card {
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .artwork-card:hover {
+      transform: scale(1.015);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+    }
+
+    .artwork-image {
+      width: 100%;
+      height: 70vh;
+      min-height: 500px;
+      max-height: 85vh;
+      overflow: hidden;
+      background-color: #ffffff !important;
+    }
+
+    .artwork-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      background-color: #ffffff !important;
+      transition: transform 0.9s ease;
+    }
+
+    .artwork-card:hover .artwork-image img { transform: scale(1.04); }
+
+    .artwork-caption {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--dark-brown);
+      background: rgba(255,255,255,0.96);
+    }
+
+    .slider-prev, .slider-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.55);
+      color: white;
+      border: none;
+      font-size: 3rem;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0.85;
+      transition: all 0.25s ease;
+    }
+
+    .slider-prev:hover, .slider-next:hover {
+      background: rgba(0,0,0,0.85);
+      opacity: 1;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .slider-prev { left: 2%; }
+    .slider-next { right: 2%; }
+
+    footer {
+      background: var(--dark-brown);
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: var(--accent-orange);
+      margin-bottom: 1.2rem;
+      font-size: 1.35rem;
+    }
+
+    .footer-section p, .footer-section a { color: #ddd; }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover, .social-icons a:hover { color: var(--accent-orange); }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2.5rem;
+      margin-top: 2rem;
+      border-top: 1px solid #555;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 1100px) { .cards-container { margin: 0 auto 0 3.5rem; } }
+    @media (max-width: 900px)  { .cards-container { margin: 0 auto 0 2.5rem; } .card-image { height: 460px; } }
+    @media (max-width: 700px)  { .cards-container { margin: 0 1.5rem; padding: 0; gap: 2rem; } .card-image { height: 420px; } }
+    @media (max-width: 500px)  { .cards-container { margin: 0 1rem; } .card-image { height: 380px; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="carvefest1.jpeg" alt="CARVEFEST 2026"></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="sponsors.html">Sponsors</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-slideshow" id="heroSlideshow"></div>
+    <div class="hero-content">
+      <h2>Celebrate Wood, Craft & Culture</h2>
+      <p>Live carving demonstrations | Curated Exhibition | Marketplace</p>
+      <p style="font-size:1.1rem; opacity:0.9; margin-top:1.5rem;">
+        February 27 – March 1, 2026 • At AGROFEST in the Queen’s Park Gallery
+      </p>
+    </div>
+  </section>
+
+  <section class="countdown-section">
+    <h3>CARVEFEST 2026 Starts In:</h3>
+    <div class="countdown">
+      <span><div class="number" id="days">00</div><div class="label">Days</div></span>
+      <span><div class="number" id="hours">00</div><div class="label">Hours</div></span>
+      <span><div class="number" id="minutes">00</div><div class="label">Minutes</div></span>
+      <span><div class="number" id="seconds">00</div><div class="label">Seconds</div></span>
+    </div>
+  </section>
+
+  <section class="slider-section">
+    <h2>Featured Artists 2026</h2>
+    <div class="slider-wrapper">
+      <div class="slider" id="featuredSlider">
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Adrian Vernarce Forde.jpg" alt="Artwork by Adrian Vernarce Forde">
+            </div>
+            <div class="artwork-caption">Adrian Vernarce Forde</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Ashanti Trotman.jpeg" alt="Artwork by Ashanti Trotman">
+            </div>
+            <div class="artwork-caption">Ashanti Trotman</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/John Birdman Gibbons.jpg" alt="Artwork by John Birdman Gibbons">
+            </div>
+            <div class="artwork-caption">John Birdman Gibbons</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Kenrick Barrow.jpeg" alt="Artwork by Kenrick Barrow">
+            </div>
+            <div class="artwork-caption">Kenrick Barrow</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Marlon Ilon Skeete.jpeg" alt="Artwork by Marlon Ilon Skeete">
+            </div>
+            <div class="artwork-caption">Marlon Ilon Skeete</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Marlon Waterman.jpeg" alt="Artwork by Marlon Waterman">
+            </div>
+            <div class="artwork-caption">Marlon Waterman</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Medford.jpg" alt="Artwork by Medford">
+            </div>
+            <div class="artwork-caption">Medford</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Onkphra Wells.jpg" alt="Artwork by Onkphra Wells">
+            </div>
+            <div class="artwork-caption">Onkphra Wells</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Rawle Buju Ross.jpg" alt="Artwork by Rawle Buju Ross">
+            </div>
+            <div class="artwork-caption">Rawle Buju Ross</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Shaquille Hewitt.png" alt="Artwork by Shaquille Hewitt">
+            </div>
+            <div class="artwork-caption">Shaquille Hewitt</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Teddy Kirton.png" alt="Artwork by Teddy Kirton">
+            </div>
+            <div class="artwork-caption">Teddy Kirton</div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <div class="artwork-card">
+            <div class="artwork-image">
+              <img src="woodworkers/Tito Clarke.jpg" alt="Artwork by Tito Clarke">
+            </div>
+            <div class="artwork-caption">Tito Clarke</div>
+          </div>
+        </div>
+
+      </div>
+      <button class="slider-prev" onclick="prevSlide('featuredSlider')">❮</button>
+      <button class="slider-next" onclick="nextSlide('featuredSlider')">❯</button>
+    </div>
+  </section>
+
+  <section class="home-intro">
+    <h1>CARVEFEST – Embracing Culture – Sustainable Industry</h1>
+    <div class="subheadline">
+      A national woodcarving experience that brings Barbadian heritage to life - creating real opportunities for skills development, business growth, and sustainable livelihoods.
+    </div>
+    <p class="intro-text">
+      Hosted within AGROFEST, Barbados, CARVEFEST brings together master carvers, artisans, young apprentices, buyers, producers, and partner brands in one vibrant space. It’s where tradition meets opportunity - through live carving demonstrations using both hand tools and power tools, youth training experiences, meaningful conversations, and partnerships that help turn craft into lasting careers. Whether you’re curious about carving as a hobby, exploring creative business opportunities, or simply love beautifully made things, there’s something at CARVEFEST for you.
+    </p>
+
+    <h3 style="margin: 2.5rem 0 1.2rem; color: var(--forest-green);">What you will experience:</h3>
+    <ul>
+      <li>Watch master carvers shape mahogany in real time</li>
+      <li>See high-energy chainsaw carving and large-scale sculptures</li>
+      <li>Discover one-of-a-kind Caribbean pieces you can buy and take home</li>
+      <li>Meet artisans and hear the stories behind their work</li>
+      <li>Perfect for visitors looking to take home a piece of Barbados’s mahogany.</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <h2>The CARVEFEST Experience</h2>
+      <p>An immersive celebration of Barbadian mahogany craft, culture, and creativity.</p>
+    </div>
+
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-image">
+          <img src="artists/artist11.jpg" alt="Live wood carving demonstration">
+        </div>
+        <div class="card-content">
+          <h3>Live Carving Demonstrations</h3>
+          <p>Watch master artisans transform raw wood into stunning sculptures right before your eyes.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="schoolshowcase.jpg" alt="Curated wood carving exhibition">
+        </div>
+        <div class="card-content">
+          <h3>Curated Exhibition</h3>
+          <p>Explore the exhibition showcasing exceptional Barbadian mahogany artworks.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-image">
+          <img src="Medford Exhibition.jpg" alt="Mahogany marketplace">
+        </div>
+        <div class="card-content">
+          <h3>Marketplace</h3>
+          <p>Discover one-of-a-kind mahogany pieces and buy directly from the makers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>CARVEFEST 2026</h3>
+        <p>Mahogany Mound Studios in association with Artists Alliance Barbados</p>
+        <p>Inside AGROFEST • February 27 – March 1, 2026</p>
+        <img src="cedi.jpeg" height="70px" width="150px" alt="CARVEFEST 2026">
+        <div class="social-icons" style="margin-top:1.2rem;">
+          <a href="https://www.facebook.com/carvefest246"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/carvefest/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@CarveFest"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="about.html">About the Event</a></p>
+        <p><a href="program.html">Program & Schedule</a></p>
+        <p><a href="sponsors.html">Sponsorship Opportunities</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i> carvefest@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +1 (246) 230-9091</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 CARVEFEST – Celebrating Barbadian Craft & Creativity</p>
+    </div>
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const targetDate = new Date("2026-02-27T10:00:00-04:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      let diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.querySelectorAll('.countdown .number').forEach(el => el.textContent = "NOW OPEN");
+        document.querySelectorAll('.countdown .label').forEach(el => el.textContent = "");
+        return;
+      }
+
+      const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent    = String(days).padStart(2, '0');
+      document.getElementById("hours").textContent   = String(hours).padStart(2, '0');
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Hero Slideshow
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroSlideshow = document.getElementById('heroSlideshow');
+      if (!heroSlideshow) return;
+
+      const artistImages = [
+        "Adrian Forde Artwork.jpg",
+        "Artwork Kenneth Blackman 1.jpeg",
+        "Ashanti Trotman display.jpeg",
+        "Buju work.jpg",
+        "fallen mahogany tree.jpg",
+        "John Birdman Gibbons marketplace.jpg",
+        "Kenneth Blackman1.jpg",
+        "mahogany cut.jpg",
+        "Mahogany forest.jpeg",
+        "mahogany tree warrens.jpg",
+        "Marlon Waterman - Artwork.jpeg",
+        "Tito Clarke artwork.jpg"
+      ];
+
+      let current = 0;
+
+      function showImage(index) {
+        heroSlideshow.style.opacity = '0';
+        setTimeout(() => {
+          heroSlideshow.style.backgroundImage = `url('artists/${artistImages[index]}')`;
+          heroSlideshow.style.opacity = '1';
+        }, 1500);
+      }
+
+      showImage(current);
+
+      setInterval(() => {
+        current = (current + 1) % artistImages.length;
+        showImage(current);
+      }, 8000);
+
+      initSlider('featuredSlider');
+    });
+
+    // Featured Artists auto-slider – 4 seconds per slide
+    function initSlider(sliderId) {
+      const slider = document.getElementById(sliderId);
+      if (!slider) return;
+
+      let autoPlayTimeout = null;
+      const interval = 4000;  // 4 seconds per artist
+
+      function next() {
+        slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+      }
+
+      function prev() {
+        slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+      }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        autoPlayTimeout = setTimeout(() => {
+          next();
+          startAutoPlay();
+        }, interval);
+      }
+
+      function stopAutoPlay() {
+        if (autoPlayTimeout) {
+          clearTimeout(autoPlayTimeout);
+          autoPlayTimeout = null;
+        }
+      }
+
+      const prevBtn = document.querySelector(`[onclick="prevSlide('${sliderId}')"]`);
+      const nextBtn = document.querySelector(`[onclick="nextSlide('${sliderId}')"]`);
+
+      if (prevBtn) prevBtn.onclick = prev;
+      if (nextBtn) nextBtn.onclick = next;
+
+      // Start auto-play after a short initial delay
+      setTimeout(startAutoPlay, 1500);
+
+      // Pause on hover / interaction
+      slider.addEventListener('mouseenter', stopAutoPlay);
+      slider.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    window.nextSlide = function(sliderId) {
+      const slider = document.getElementById(sliderId);
+      if (slider) slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+    };
+
+    window.prevSlide = function(sliderId) {
+      const slider = document.getElementById(sliderId);
+      if (slider) slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+    };
+  </script>
+
+</body>
+</html>

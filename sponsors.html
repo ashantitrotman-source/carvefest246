@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partners – CARVEFEST 2026 – Barbados Wood Carving Festival</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --dark-brown:    #3a220c;
+      --medium-brown:  #5c3616;
+      --light-brown:   #8b5a2b;
+      --forest-green:  #287a3c;
+      --soft-green:    #e4f3e8;
+      --accent-orange: #e67e22;
+      --white:         #ffffff;
+      --light-gray:    #f8f8f8;
+      --dark-gray:     #333333;
+      --medium-gray:   #777777;
+      --red:           #c8102e;
+      --red-dark:      #a00824;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: var(--dark-gray); background-color: var(--white); }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo img { height: 180px; width: 180px; display: block; }
+
+    nav ul { display: flex; list-style: none; }
+    nav ul li { margin-left: 1.8rem; }
+    nav ul li a { text-decoration: none; color: var(--dark-gray); font-weight: 500; transition: color 0.3s; }
+    nav ul li a:hover, nav ul li a.active { color: var(--forest-green); }
+
+    section { padding: 4rem 5%; }
+    .section-header { text-align: center; margin-bottom: 2.5rem; }
+    .section-header h2 { font-size: 2.6rem; color: var(--dark-brown); margin-bottom: 0.6rem; }
+    .section-header p { color: var(--medium-gray); font-size: 1.15rem; max-width: 720px; margin: 0 auto; }
+
+    .intro-text {
+      font-size: 1.2rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .why-partner {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+    }
+
+    .why-partner ul {
+      list-style: none;
+      font-size: 1.15rem;
+    }
+
+    .why-partner li {
+      margin-bottom: 1.2rem;
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .why-partner li::before {
+      content: "✔";
+      color: var(--forest-green);
+      position: absolute;
+      left: 0;
+      font-size: 1.4rem;
+    }
+
+    /* Sponsor logos – grid layout (no horizontal scroll) */
+    .sponsors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+      justify-items: center;
+    }
+
+    .sponsor-logo {
+      text-align: center;
+    }
+
+    .sponsor-logo img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+      transition: transform 0.3s ease;
+    }
+
+    .sponsor-logo img:hover {
+      transform: scale(1.15);
+    }
+
+    .sponsor-logo.prominent img {
+      width: 220px;
+      height: 220px;
+    }
+
+    .sponsor-logo.secondary img {
+      width: 180px;
+      height: 180px;
+    }
+
+    .contact-section {
+      text-align: center;
+      background: var(--soft-green);
+      padding: 3rem 5%;
+      border-radius: 12px;
+      max-width: 900px;
+      margin: 0 auto 4rem;
+    }
+
+    .contact-section h3 {
+      color: var(--dark-brown);
+      margin-bottom: 1.2rem;
+      font-size: 1.8rem;
+    }
+
+    .contact-section p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-section .phone, .contact-section .email {
+      font-weight: 600;
+      color: var(--forest-green);
+    }
+
+    .cta {
+      background: linear-gradient(rgba(40,122,60,0.92), rgba(40,122,60,0.92));
+      color: white;
+      text-align: center;
+      padding: 6rem 5%;
+    }
+
+    .cta h2 { font-size: 2.8rem; margin-bottom: 1.2rem; }
+    .cta p { font-size: 1.3rem; max-width: 760px; margin: 0 auto 2rem; }
+
+    footer {
+      background: var(--dark-brown);
+      color: white;
+      padding: 4rem 5% 2rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      color: var(--accent-orange);
+      margin-bottom: 1.2rem;
+      font-size: 1.35rem;
+    }
+
+    .footer-section p, .footer-section a {
+      color: #ddd;
+    }
+
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin-right: 1rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover,
+    .social-icons a:hover {
+      color: var(--accent-orange);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2.5rem;
+      margin-top: 2rem;
+      border-top: 1px solid #555;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      header { flex-direction: column; padding: 1.2rem; gap: 1rem; }
+      nav ul { flex-wrap: wrap; justify-content: center; }
+      .sponsors-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 2rem;
+      }
+      .sponsor-logo img { width: 110px; height: 110px; }
+      .sponsor-logo.prominent img { width: 160px; height: 160px; }
+      .sponsor-logo.secondary img { width: 135px; height: 135px; }
+    }
+
+    @media (max-width: 600px) {
+      .sponsors-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1.5rem;
+      }
+      .sponsor-logo img { width: 90px; height: 90px; }
+      .sponsor-logo.prominent img { width: 130px; height: 130px; }
+      .sponsor-logo.secondary img { width: 110px; height: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="index.html"><img src="carvefest1.jpeg" alt="CARVEFEST 2026"></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <div class="section-header">
+      <h2>Our Partners</h2>
+      <p class="intro-text">CARVEFEST is powered by organizations that believe in Barbadian talent, youth development, and meaningful cultural-economic impact.</p>
+    </div>
+
+    <div class="why-partner">
+      <h3 style="text-align:center; color:var(--forest-green); margin-bottom:1.5rem;">Why Partner With Us</h3>
+      <ul>
+        <li>Measurable ROI through buyer engagement and reporting</li>
+        <li>National exposure across AGROFEST</li>
+        <li>Direct connection to artisans, contractors, and homeowners</li>
+        <li>Visible support for youth skills and creative industries</li>
+        <li>All key sponsors receive a concise post-event report with engagement and buyer interest highlights</li>
+      </ul>
+    </div>
+
+    <div class="section-header">
+      <h2>SPONSORS</h2>
+    </div>
+
+    <div class="sponsors-grid">
+      <!-- Most prominent: Agrofest & NCF larger -->
+      <div class="sponsor-logo prominent">
+        <img src="sponsors/AGROFEST LOGO PNG.png" alt="AGROFEST">
+      </div>
+      <div class="sponsor-logo prominent">
+        <img src="sponsors/NCF mark.png" alt="NCF">
+      </div>
+
+      <!-- Next level -->
+      <div class="sponsor-logo secondary">
+        <img src="sponsors/REMNANT CONCEPTS LOGO.jpg" alt="Remnant Concepts">
+      </div>
+      <div class="sponsor-logo secondary">
+        <img src="sponsors/cedi.jpeg" alt="CEDI">
+      </div>
+
+      <!-- Others standard size -->
+      <div class="sponsor-logo">
+        <img src="sponsors/ACE H & B Logo.png" alt="ACE H & B">
+      </div>
+      <div class="sponsor-logo">
+        <img src="sponsors/DaBudzman Logo.jpg" alt="DaBudzman">
+      </div>
+      <div class="sponsor-logo">
+        <img src="sponsors/Inferno Logo.png" alt="Inferno">
+      </div>
+      <div class="sponsor-logo">
+        <img src="sponsors/MIS LOGO.jpg" alt="MIS">
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h3>Become a Partner</h3>
+    <p>Contact us today to discuss how your brand can support Barbadian talent and creativity:</p>
+    <p><span class="email">carvefest@gmail.com</span></p>
+    <p><span class="phone">(246) 230-9091</span></p>
+  </section>
+
+  <section class="cta">
+    
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>CARVEFEST 2026</h3>
+        <div style="display: flex; flex-direction:column;">
+          <img src="cedi.jpeg" height="70px" width="150px" alt="CARVEFEST 2026">
+          <img src="cediflow.jpeg" height="50px" width="150px" alt="CARVEFEST 2026">
+        </div>
+        <p>Mahogany Mound Studios in association with Artists Alliance Barbados</p>
+        <p>Inside AGROFEST • February 27 – March 1, 2026</p>
+        <div class="social-icons" style="margin-top:1.2rem;">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="about.html">About the Event</a></p>
+        <p><a href="program.html">Program & Schedule</a></p>
+        <p><a href="sponsors.html">Sponsorship Opportunities</a></p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i> carvefest@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +1 (246) 230-9091</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 CARVEFEST – Celebrating Barbadian Craft & Creativity</p>
+    </div>
+  </footer>
+
+</body>
+</html>
